@@ -70,7 +70,7 @@ st.header("Sube tu archivo de audio y transcríbelo a texto")
 col1, col2 = st.columns(2)
 
 # File upload
-audio_file = st.sidebar.file_uploader("Subir audio de máximo 3 minutos", type=["wav", "mp3", "m4a"])
+audio_file = st.sidebar.file_uploader("Subir audio de máximo 5 MB", type=["wav", "mp3", "m4a"])
 st.sidebar.audio(audio_file)
 
 
@@ -80,7 +80,7 @@ if st.sidebar.button("Transcribir audio"):
             transcribed_text = transcribe_audio(audio_file)
 
             st.sidebar.success("Transcripción completada")
-            col1.title("Resultado transcripción")
+            col1.subheader("Resultado transcripción")
             col1.write(transcribed_text)
             col1.download_button('Descargar archivo de texto .txt con la transcripción', transcribed_text, file_name='transcripcion.txt')
             #st.write(result["text"])
@@ -92,7 +92,7 @@ if st.sidebar.button("Transcribir audio"):
             success()
             #print(result)
             resultado_resumen=resumen.choices[0].text
-            col2.title("Resumen de la transcripción")
+            col2.subheader("Resumen de la transcripción")
 
             col2.write(resultado_resumen)
 
