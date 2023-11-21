@@ -24,7 +24,8 @@ st.sidebar.image(image, width=None, use_column_width=None)
 
 # Set your OpenAI API key
 #openai_api_key=os.environ.get("OPENAI_API_KEY") # Opcion para Streamlit local
-openai_api_key=st.secrets("OPENAI_API_KEY") # Opción para Streamlit share
+openai_api_key=st.secrets["openai_api_key"] # Opción para Streamlit share
+
 
 
 client = OpenAI(
