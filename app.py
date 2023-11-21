@@ -82,15 +82,13 @@ if st.sidebar.button("Transcribir audio"):
             st.sidebar.success("Transcripción completada")
             col1.subheader("Resultado transcripción")
             col1.write(transcribed_text)
-            col1.download_button('Descargar archivo de texto .txt con la transcripción', transcribed_text, file_name='transcripcion.txt')
-            #st.write(result["text"])
+            col1.download_button('Descargar transcripción', transcribed_text, file_name='transcripcion.txt')
             resumen = client.completions.create(
                 model="gpt-3.5-turbo-instruct", 
                 max_tokens=200,
                 prompt= "Genera resumen de un párrafo del texto: "+str({transcribed_text})
             )
             success()
-            #print(result)
             resultado_resumen=resumen.choices[0].text
             col2.subheader("Resumen de la transcripción")
 
