@@ -16,6 +16,16 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+# Oculto botones de Streamlit
+hide_streamlit_style = """
+				<style>
+				#MainMenu {visibility: hidden;}
+
+				footer {visibility: hidden;}
+				</style>
+				"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 # Logo sidebar
 image = PIL.Image.open('logo_blanco.png')
 st.sidebar.image(image, width=None, use_column_width=None)
